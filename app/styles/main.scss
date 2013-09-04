@@ -1,3 +1,12 @@
 @import "lib/bourbon";
 @import "lib/neat";
 @import "lib/envos";
+
+.btn {
+    @include button(shiny, #ff0000);
+}
+
+.box3 > li, .box3 > div {
+  @include span-columns(4);
+  @include omega(3n);
+}

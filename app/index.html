@@ -2,21 +2,20 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html data-ng-app="envosMarketingApp" data-ng-controller="envosMarketingAppCtrl" class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Энвос - 
-Промышленые светильники от производителя с доставкой</title>
+    <title>Промышленые светильники от производителя с доставкой - Энвос</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="target-densityDpi=device-dpi, width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
 </head>
-  <body ng-app="envosMarketingApp">
+  <body class="ng-cloak">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -25,7 +24,18 @@
       <script src="bower_components/es5-shim/es5-shim.js"></script>
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
-
+    
+    <!-- Header -->
+    <header class="hdr-main text-center">
+      <div class="container">
+        <nav class="nav-main">
+          <img class="logo left" src="images/logo.svg" alt="Энвос - Добавь света">
+          <h1 class="hdr-descr">Промышленые светильники от производителя с доставкой</h1>
+          <a href="callto:+380352430000">+38(0352) 43-00-00</a>
+          <a class="btn" href="#">Заказать Звонок</a>
+        </div>
+      </nav>
+    </header>    
     <!-- Add your site or application content here -->
     <div class="container" ng-view=""></div>
 
