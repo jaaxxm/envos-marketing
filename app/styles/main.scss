@@ -3,6 +3,9 @@
 @import "lib/envos";
 
 .btn {
+    @include button;
+}
+.btn-pri {
     @include button(shiny, #ff0000);
 }
 
