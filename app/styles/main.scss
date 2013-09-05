@@ -2,14 +2,60 @@
 @import "lib/neat";
 @import "lib/envos";
 
-.btn {
-    @include button;
+.circle {
+  border-radius: 50%;
 }
-.btn-pri {
-    @include button(shiny, #ff0000);
+.thumb {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  h3 {
+  }
+  .thumb {
+    margin: 0 auto;
+  }
+  .price {
+    position: absolute;
+    display: inline-block;
+    @include transform(translateY(50px));
+    @include transform(translateX(90%));
+  }
 }
 
-.box3 > li, .box3 > div {
-  @include span-columns(4);
-  @include omega(3n);
+[class^="svg-"], [class*=" svg-"] {
+  @include size(2em);
+}
+
+.btn {
+  @include button;
+}
+.btn-pri {
+  @include button(shiny, #ff0000);
+}
+
+.box3 {
+  @include outer-container;
+  > li, > div {
+    @include span-columns(4);
+    @include omega(3n);
+  }
+}
+
+.brand {
+  @include span-columns(3);
+  h1 {font-size: 1em}
+}
+.contacts {
+  @include span-columns(2);
+  @include shift(1);
+  a {display: block;}
+}
+.reserve {
+  @include span-columns(2);
+  @include shift(1);  
+}
+.proof {
+  text-align: right;
+  @include span-columns(3);
+  @include omega();  
 }

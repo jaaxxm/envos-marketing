@@ -393,6 +393,33 @@ address {
   font-style: normal;
   line-height: 1.42857; }
 
+.circle {
+  border-radius: 50%; }
+
+.thumb {
+  position: relative;
+  z-index: 1;
+  text-align: center; }
+  .thumb .thumb {
+    margin: 0 auto; }
+  .thumb .price {
+    position: absolute;
+    display: inline-block;
+    -webkit-transform: translateY(50px);
+    -moz-transform: translateY(50px);
+    -ms-transform: translateY(50px);
+    -o-transform: translateY(50px);
+    transform: translateY(50px);
+    -webkit-transform: translateX(90%);
+    -moz-transform: translateX(90%);
+    -ms-transform: translateX(90%);
+    -o-transform: translateX(90%);
+    transform: translateX(90%); }
+
+[class^="svg-"], [class*=" svg-"] {
+  width: 2em;
+  height: 2em; }
+
 .btn {
   border: 1px solid #076fe4;
   border-radius: 3px;
@@ -452,16 +479,66 @@ address {
     opacity: 0.5;
     cursor: not-allowed; }
 
-.box3 > li, .box3 > div {
+.box3 {
+  *zoom: 1;
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  .box3:before, .box3:after {
+    content: " ";
+    display: table; }
+  .box3:after {
+    clear: both; }
+  .box3 > li, .box3 > div {
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 31.76157%; }
+    .box3 > li:last-child, .box3 > div:last-child {
+      margin-right: 0; }
+    .box3 > li:nth-child(3n), .box3 > div:nth-child(3n) {
+      margin-right: 0; }
+    .box3 > li:nth-child(3n+1), .box3 > div:nth-child(3n+1) {
+      clear: left; }
+
+.brand {
   display: block;
   float: left;
   margin-right: 2.35765%;
-  width: 31.76157%; }
-  .box3 > li:last-child, .box3 > div:last-child {
+  width: 23.23176%; }
+  .brand:last-child {
     margin-right: 0; }
-  .box3 > li:nth-child(3n), .box3 > div:nth-child(3n) {
+  .brand h1 {
+    font-size: 1em; }
+
+.contacts {
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  width: 14.70196%;
+  margin-left: 8.5298%; }
+  .contacts:last-child {
     margin-right: 0; }
-  .box3 > li:nth-child(3n+1), .box3 > div:nth-child(3n+1) {
-    clear: left; }
+  .contacts a {
+    display: block; }
+
+.reserve {
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  width: 14.70196%;
+  margin-left: 8.5298%; }
+  .reserve:last-child {
+    margin-right: 0; }
+
+.proof {
+  text-align: right;
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  width: 23.23176%;
+  margin-right: 0; }
+  .proof:last-child {
+    margin-right: 0; }
 
 /*# sourceMappingURL=main.css.map */
