@@ -2,48 +2,61 @@
 @import "lib/neat";
 @import "lib/envos";
 
-.circle {
-  border-radius: 50%;
-}
-.thumb {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  h3 {
-  }
-  .thumb {
-    margin: 0 auto;
-  }
-  .price {
-    position: absolute;
-    display: inline-block;
-    @include transform(translateY(50px));
-    @include transform(translateX(90%));
+.tac {text-align: center;}
+.tar {text-align: right;}
+
+.seal {
+  overflow: auto;
+  @include clearfix;  
+  .th-seal {
+    float: left;
+    margin-right: 2em;
+    @include size(30% 30%);
   }
 }
 
+// Images
 [class^="svg-"], [class*=" svg-"] {
   @include size(2em);
 }
+.thumb img {@include img-responsive;}
 
+// Buttons
 .btn {
-  @include button;
+  @include button(pill);
 }
 .btn-pri {
   @include button(shiny, #ff0000);
 }
 
-.box3 {
+// Grid :: Boxes
+.boxes {
   @include outer-container;
-  > li, > div {
-    @include span-columns(4);
-    @include omega(3n);
-  }
+}
+.box6 {
+  @include span-columns(2);
+  @include omega(6n);
+}
+.box4 {
+  position: relative;  
+  @include span-columns(3);
+  @include omega(4n);
+}
+.box3 {
+  position: relative;  
+  @include span-columns(4);
+  @include omega(3n);
+}
+.box2 {
+  @include span-columns(6);
+  @include omega(2n);
 }
 
+// Header
 .brand {
   @include span-columns(3);
   h1 {font-size: 1em}
+  img {@include img-responsive;}
 }
 .contacts {
   @include span-columns(2);
@@ -59,3 +72,84 @@
   @include span-columns(3);
   @include omega();  
 }
+
+// Categories
+.circle {
+  img {
+    border: 1px solid $btn-default-border;
+    border-radius: 50%;
+  }
+}
+.cat {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  h3 {
+  }
+  .thumb {
+    margin: 0 4em $line-height-computed;
+  }
+  .price {
+    position: absolute;
+    display: inline-block;
+    @include transform(translateY(50px));
+    @include transform(translateX(50%));
+  }
+}
+
+// Products
+.prod-description {
+  @include outer-container;  
+}
+.prod-all {
+  @include span-columns(7);
+}
+.prod-content {
+  @include span-columns(5);
+  @include omega();
+}
+.prod {
+  height: 300px;
+}
+.prod .thumb {
+  height: 100%;
+  img {
+    display: inline;
+    vertical-align: bottom;
+  }
+}
+.feat {
+  display: block;
+  @include transform(rotate(-90deg));
+}
+// Price Tag
+.price span {
+  margin-left:1em;
+  padding:0 10px 0 12px;
+  background: $label-default-bg;
+  color:$label-color;
+  text-decoration:none;
+  display: inline-block;
+  line-height: 24px;
+  position: relative;
+  &:before {
+    content:"";
+    float:left;    
+    margin-right: -1px;
+    border-color:transparent $label-default-bg transparent transparent;
+    border-style:solid;
+    border-width:12px 12px 12px 0;
+    @include size(0 0);
+    @include position(absolute, 0 100% auto auto);
+  }
+  &:after {
+    content:"";
+    float:left;
+    background: $body-bg;      
+    border-radius:2px;
+    @include size(4px 4px);
+    @include position(absolute, 10px auto auto -2px);
+  }  
+} 
+
+.hide{display:none}

@@ -13,6 +13,11 @@
   outline-offset: -2px;
 }
 
+@mixin img-responsive($display: block) {
+  display: $display;
+  max-width: 100%; // Part 1: Set a maximum relative to the parent
+  height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+}
 
 // Common
 @mixin transform-multi($prop1: none, $prop2: none) {

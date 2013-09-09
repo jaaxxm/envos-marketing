@@ -1,190 +1,63 @@
 <!-- Awards block -->
-<section class="box3">
-	<div class="seal">
+<section class="boxes">
+	<div class="seal box3">
 		<h3>Лучшая цена</h3>
-		<img src="http://placehold.it/140x100">
-		<p>Мы гарантируем лучшую цену так как яввляемся производителями</p>
+		<img class="th-seal" src="images/seal/price.png">
+		<p>Мы гарантируем лучшую цену так как яввляемся производителями</p>		
 	</div>
-	<div class="seal">
+	<div class="seal box3">
 		<h3>Гарантия возврата</h3>
-		<img src="http://placehold.it/140x100">
-		<p>Если наш товар Вам не подойдет или не понадобится, мы вернем Вам деньги</p>
+		<img class="th-seal" src="images/seal/recall.png">
+		<p>Если наш товар Вам не подойдет или не понадобится, мы вернем Вам деньги</p>		
 	</div>
-	<div class="seal">
+	<div class="seal box3">
 		<h3>Гарантия качества</h3>
-		<img src="http://placehold.it/140x100">
-		<p>Мы хотим, чтобы вы еще долго оставались довольны качеством нашей продукции</p>
+		<img class="th-seal" src="images/seal/quality.png">
+		<p>Мы хотим, чтобы вы еще долго оставались довольны качеством нашей продукции</p>		
 	</div>
 </section>
 
 <!-- Products Block -->
-<h2>Станочные светильники</h2>
-<section class="box3">
-	<div class="thumb">
+<section class="cat-links boxes">
+	<div class="box3">
+		<h2>Станочные светильники</h2>
+		 <p>для местного освещения рабочих зон сверлильных, токарных и других станков, сборочных столов, а также разного производственного оборудования</p>
+	</div>
+	<div class="cat box3">
 		<h3>Серия НКП 01У</h3>
-		<span class="price">от 500 руб.</span>
-		<img class="circle" src="http://placehold.it/140x140">
+		<div class="price">от <span>500 руб.</span></div>
+		<div class="circle thumb">
+			<img src="images/products/bench/nkp-head.jpg">
+		</div>
 		<div class="specs-brief">
-			<p>Длина стойки L, мм <strong>560</strong></p>
 			<p>Защитный угол, град <strong>19</strong></p>
 			<p>Минимальная освещенность <strong>2300</strong></p>
 		</div>
-		<button class="btn" ng-click="expression"><img class="svg-info" src="images/ico/info.svg" alt="">
+		<button class="btn" ng-click="showProducts(0)"><img class="svg-info" src="images/ico/info.svg" alt="">
 			<span>Подробнее</span></button>
-		<button class="btn" ng-click="expression"><img class="svg-cart" src="images/ico/cart.svg" alt="">
+		<button class="btn" ng-click="openPurchase()"><img class="svg-cart" src="images/ico/cart.svg" alt="">
 			<span>Заказать</span></button>
 	</div>
-	<div class="thumb">
-		<h3>Серия НКП 01У</h3>
-		<span class="price">от 500 руб.</span>
-		<img class="circle" src="http://placehold.it/140x140">
-		<div class="specs-brief">
-			<p>Длина стойки L, мм <strong>560</strong></p>
-			<p>Защитный угол, град <strong>19</strong></p>
-			<p>Минимальная освещенность <strong>2300</strong></p>
+	<div class="cat box3">
+		<h3>Серия ИКП 09У</h3>
+		<div class="price">от <span>500 руб.</span></div>
+		<div class="circle thumb">
+			<img src="images/products/bench/ikp-head.jpg">
 		</div>
-		<button class="btn" ng-click="expression"><img class="svg-info" src="images/ico/info.svg" alt="">
-			<span>Подробнее</span></button>
-		<button class="btn" ng-click="expression"><img class="svg-cart" src="images/ico/cart.svg" alt="">
-			<span>Заказать</span></button>
-	</div>
-	<div class="thumb">
-		<h3>Серия НКП 01У</h3>
-		<span class="price">от 500 руб.</span>
-		<img class="circle" src="http://placehold.it/140x140">
 		<div class="specs-brief">
-			<p>Длина стойки L, мм <strong>560</strong></p>
 			<p>Защитный угол, град <strong>19</strong></p>
-			<p>Минимальная освещенность <strong>2300</strong></p>
+			<p>Минимальная освещенность <strong>800/3100</strong></p>
 		</div>
-		<button class="btn" ng-click="expression"><img class="svg-info" src="images/ico/info.svg" alt="">
+		<button class="btn" ng-click="showProducts(1)"><img class="svg-info" src="images/ico/info.svg" alt="">
 			<span>Подробнее</span></button>
-		<button class="btn" ng-click="expression"><img class="svg-cart" src="images/ico/cart.svg" alt="">
+		<button class="btn" ng-click="openPurchase()"><img class="svg-cart" src="images/ico/cart.svg" alt="">
 			<span>Заказать</span></button>
 	</div>
 </section>
+<div class="example-animate-container">
+  <div class="include-example" ng-include="product.url"></div>
+</div>
 
-<h2>Тепличные светильники</h2>
-<section class="box3">
-	<div class="thumb">
-		<h3>Серия НКП 01У</h3>
-		<span class="price">от 500 руб.</span>
-		<img class="circle" src="http://placehold.it/140x140">
-		<div class="specs-brief">
-			<p>Длина стойки L, мм <strong>560</strong></p>
-			<p>Защитный угол, град <strong>19</strong></p>
-			<p>Минимальная освещенность <strong>2300</strong></p>
-		</div>
-		<button class="btn" ng-click="expression"><img class="svg-info" src="images/ico/info.svg" alt="">
-			<span>Подробнее</span></button>
-		<button class="btn" ng-click="expression"><img class="svg-cart" src="images/ico/cart.svg" alt="">
-			<span>Заказать</span></button>
-	</div>
-	<div class="thumb">
-		<h3>Серия НКП 01У</h3>
-		<span class="price">от 500 руб.</span>
-		<img class="circle" src="http://placehold.it/140x140">
-		<div class="specs-brief">
-			<p>Длина стойки L, мм <strong>560</strong></p>
-			<p>Защитный угол, град <strong>19</strong></p>
-			<p>Минимальная освещенность <strong>2300</strong></p>
-		</div>
-		<button class="btn" ng-click="expression"><img class="svg-info" src="images/ico/info.svg" alt="">
-			<span>Подробнее</span></button>
-		<button class="btn" ng-click="expression"><img class="svg-cart" src="images/ico/cart.svg" alt="">
-			<span>Заказать</span></button>
-	</div>
-	<div class="thumb">
-		<h3>Серия НКП 01У</h3>
-		<span class="price">от 500 руб.</span>
-		<img class="circle" src="http://placehold.it/140x140">
-		<div class="specs-brief">
-			<p>Длина стойки L, мм <strong>560</strong></p>
-			<p>Защитный угол, град <strong>19</strong></p>
-			<p>Минимальная освещенность <strong>2300</strong></p>
-		</div>
-		<button class="btn" ng-click="expression"><img class="svg-info" src="images/ico/info.svg" alt="">
-			<span>Подробнее</span></button>
-		<button class="btn" ng-click="expression"><img class="svg-cart" src="images/ico/cart.svg" alt="">
-			<span>Заказать</span></button>
-	</div>
-</section>
-<h2>Обогрев молодняка</h2>
-<section class="box3">
-	<div class="thumb">
-		<h3>Серия НКП 01У</h3>
-		<span class="price">от 500 руб.</span>
-		<img class="circle" src="http://placehold.it/140x140">
-		<div class="specs-brief">
-			<p>Длина стойки L, мм <strong>560</strong></p>
-			<p>Защитный угол, град <strong>19</strong></p>
-			<p>Минимальная освещенность <strong>2300</strong></p>
-		</div>
-		<button class="btn" ng-click="expression"><img class="svg-info" src="images/ico/info.svg" alt="">
-			<span>Подробнее</span></button>
-		<button class="btn" ng-click="expression"><img class="svg-cart" src="images/ico/cart.svg" alt="">
-			<span>Заказать</span></button>
-	</div>
-	<div class="thumb">
-		<h3>Серия НКП 01У</h3>
-		<span class="price">от 500 руб.</span>
-		<img class="circle" src="http://placehold.it/140x140">
-		<div class="specs-brief">
-			<p>Длина стойки L, мм <strong>560</strong></p>
-			<p>Защитный угол, град <strong>19</strong></p>
-			<p>Минимальная освещенность <strong>2300</strong></p>
-		</div>
-		<button class="btn" ng-click="expression"><img class="svg-info" src="images/ico/info.svg" alt="">
-			<span>Подробнее</span></button>
-		<button class="btn" ng-click="expression"><img class="svg-cart" src="images/ico/cart.svg" alt="">
-			<span>Заказать</span></button>
-	</div>
-	<div class="thumb">
-		<h3>Серия НКП 01У</h3>
-		<span class="price">от 500 руб.</span>
-		<img class="circle" src="http://placehold.it/140x140">
-		<div class="specs-brief">
-			<p>Длина стойки L, мм <strong>560</strong></p>
-			<p>Защитный угол, град <strong>19</strong></p>
-			<p>Минимальная освещенность <strong>2300</strong></p>
-		</div>
-		<button class="btn" ng-click="expression"><img class="svg-info" src="images/ico/info.svg" alt="">
-			<span>Подробнее</span></button>
-		<button class="btn" ng-click="expression"><img class="svg-cart" src="images/ico/cart.svg" alt="">
-			<span>Заказать</span></button>
-	</div>
-</section>
-<form action="#">
-	<h3>Заказать светильник</h3>
-	<div class="input-group">
-	  <span class="input-group-addon"><img class="svg-user" src="images/ico/user.svg" alt=""></span>
-	  <input type="text" class="form-control" placeholder="Имя">
-	</div>
-	<div class="input-group">
-	  <span class="input-group-addon"><img class="svg-phone" src="images/ico/phone.svg" alt=""></span>
-	  <input type="text" class="form-control" placeholder="Телефон">
-	</div>
-	<div class="input-group">
-	  <textarea class="form-control" placeholder="NKP"></textarea>
-	</div>
-	<button type="submit" class="btn btn-pri">Заказать</button>
-</form>
-
-<form action="#">
-	<h3>Заказать звонок</h3>
-	<div class="input-group">
-	  <span class="input-group-addon"><img class="svg-user" src="images/ico/user.svg" alt=""></span>
-	  <input type="text" class="form-control" placeholder="Имя">
-	</div>
-	<div class="input-group">
-	  <span class="input-group-addon"><img class="svg-phone" src="images/ico/phone.svg" alt=""></span>
-	  <input type="text" class="form-control" placeholder="Телефон">
-	</div>
-	<div class="input-group">
-	  <textarea class="form-control" placeholder="Коментарии"></textarea>
-	</div>
-	<button type="submit" class="btn btn-pri">Заказать звонок</button>
-</form>
 <!-- Become Dealer Block -->
 <section>
 	<a href="" class="btn btn-pri">Заявка на получение дилерских условий</a>
