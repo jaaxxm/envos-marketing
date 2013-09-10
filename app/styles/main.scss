@@ -1,3 +1,4 @@
+@import "lib/vars";
 @import "lib/bourbon";
 @import "lib/neat";
 @import "lib/envos";
@@ -7,7 +8,7 @@
 
 .seal {
   overflow: auto;
-  @include clearfix;  
+  @include clearfix;
   .th-seal {
     float: left;
     margin-right: 2em;
@@ -16,8 +17,13 @@
 }
 
 // Images
-[class^="svg-"], [class*=" svg-"] {
-  @include size(2em);
+.btn, .input-group-addon {
+  [class^="svg-"], [class*=" svg-"] {
+    @include size(2em);
+  }
+}
+[class^="svg-c-"], [class*=" svg-c-"] {
+  @include size(3em);
 }
 .thumb img {@include img-responsive;}
 
@@ -31,7 +37,11 @@
 
 // Grid :: Boxes
 .boxes {
+  padding: ($line-height-computed * 1.5) 0;
   @include outer-container;
+}
+.box-title {
+  @include span-columns(12);  
 }
 .box6 {
   @include span-columns(2);
@@ -54,22 +64,20 @@
 
 // Header
 .brand {
-  @include span-columns(3);
+  @include span-columns(5);
   h1 {font-size: 1em}
-  img {@include img-responsive;}
+  img {
+    width: 20em;
+  }
 }
 .contacts {
-  @include span-columns(2);
-  @include shift(1);
+  @include span-columns(3);
   a {display: block;}
 }
 .reserve {
-  @include span-columns(2);
-  @include shift(1);  
-}
-.proof {
   text-align: right;
   @include span-columns(3);
+  @include shift(1);  
   @include omega();  
 }
 
@@ -94,6 +102,36 @@
     display: inline-block;
     @include transform(translateY(50px));
     @include transform(translateX(50%));
+  }
+}
+
+// Detailed Animated block
+.partial-container {
+  
+}
+.partial-block {
+  z-index: 16;
+  width: 100%;
+  @include position(relative, 0 auto auto 0);
+}
+
+.partial-block.ng-enter {  
+  @include animation(slideDown .8s both ease);
+}
+.partial-block.ng-leave {
+  @include animation (slideUp .8s both ease);
+}
+
+@include keyframes(slideDown) {  
+  from {
+    height: 0;
+    opacity: 0;
+  }
+}
+@include keyframes(slideUp) {  
+  to {
+    height: 0;
+    opacity: 0;
   }
 }
 

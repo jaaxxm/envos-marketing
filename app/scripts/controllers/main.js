@@ -3,7 +3,9 @@
 angular.module('envosMarketingApp')
   .controller('MainCtrl', function ($scope, $modal, $log) {
 	  
+	  /////////////////////
 	  // Products Series
+	  /////////////////////	 
 	  $scope.products = [ 
 	  	{ title: 'Серия НКП 01У', url: 'views/products/nkp.html'}, 
 	  	{ title: 'Серия ИКП 01У', url: 'views/products/ikp.html'}
@@ -18,14 +20,16 @@ angular.module('envosMarketingApp')
 	  	$scope.product = false;
 	  }
 
+		/////////////////////
 	  // Modal Window
+	  /////////////////////	 	  
 		$scope.items = ['item1', 'item2', 'item3'];
 
 	  $scope.openPurchase = function () {
 
 	    var modalInstance = $modal.open({
 	      templateUrl: 'views/modal/purchase.html',
-	      controller: ModalInstanceCtrl,
+	      controller: ModalPurchaseCtrl,
 	      resolve: {
 	        items: function () {
 	          return $scope.items;
@@ -40,7 +44,7 @@ angular.module('envosMarketingApp')
 	    });
 	  };
 
-		var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
+		var ModalPurchaseCtrl = function ($scope, $modalInstance, items) {
 
 		  $scope.items = items;
 		  $scope.selected = {
