@@ -1,24 +1,14 @@
 <form class="modal-form" action="#">
   <div class="modal-header">
     <button class="close" ng-click="cancel()">&times;</button>
-    <h3>Заказать светильник</h3>
+    <h3>{{item.title}}</h3>
   </div>
   <div class="modal-body">
-    <div class="input-group">
-      <span class="input-group-addon"><img class="svg-user" src="images/ico/user.svg" alt=""></span>
-      <input type="text" class="form-control" placeholder="Имя">
-    </div>
-    <div class="input-group">
-      <span class="input-group-addon"><img class="svg-phone" src="images/ico/phone.svg" alt=""></span>
-      <input type="text" class="form-control" placeholder="Телефон">
-    </div>
-    <div class="input-group">
-      <textarea class="form-control" placeholder="NKP"></textarea>
-    </div>
+    <img src="{{item.picture}}" alt="">
   </div>
 
   <div class="modal-footer">
-    <button class="btn" ng-click="ok()">Заказать</button>
+    250mm
   </div>
 </form>
 

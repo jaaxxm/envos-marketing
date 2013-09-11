@@ -139,11 +139,8 @@
 .prod-description {
   @include outer-container;  
 }
-.prod-all {
-  @include span-columns(7);
-}
-.prod-content {
-  @include span-columns(5);
+.prod-content, .prod-header {
+  @include span-columns(12);
   @include omega();
 }
 .prod {
@@ -152,7 +149,8 @@
 .prod .thumb {
   height: 100%;
   img {
-    display: inline;
+    width: 75%;
+    margin:0 auto;
     vertical-align: bottom;
   }
 }

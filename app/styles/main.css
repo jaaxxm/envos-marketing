@@ -772,21 +772,13 @@ button.close {
   .prod-description:after {
     clear: both; }
 
-.prod-all {
+.prod-content, .prod-header {
   display: block;
   float: left;
   margin-right: 2.35765%;
-  width: 57.35098%; }
-  .prod-all:last-child {
-    margin-right: 0; }
-
-.prod-content {
-  display: block;
-  float: left;
-  margin-right: 2.35765%;
-  width: 40.29137%;
+  width: 100%;
   margin-right: 0; }
-  .prod-content:last-child {
+  .prod-content:last-child, .prod-header:last-child {
     margin-right: 0; }
 
 .prod {
@@ -795,7 +787,8 @@ button.close {
 .prod .thumb {
   height: 100%; }
   .prod .thumb img {
-    display: inline;
+    width: 75%;
+    margin: 0 auto;
     vertical-align: bottom; }
 
 .feat {
