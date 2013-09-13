@@ -5,16 +5,7 @@
 
 .tac {text-align: center;}
 .tar {text-align: right;}
-
-.seal {
-  overflow: auto;
-  @include clearfix;
-  .th-seal {
-    float: left;
-    margin-right: 2em;
-    @include size(30% 30%);
-  }
-}
+.hide{display:none}
 
 // Images
 .btn, .input-group-addon {
@@ -23,25 +14,69 @@
   }
 }
 [class^="svg-c-"], [class*=" svg-c-"] {
-  @include size(3em);
+  @include size(4em);
 }
 .thumb img {@include img-responsive;}
 
 // Buttons
+// Core styles
 .btn {
-  @include button(pill);
-}
-.btn-pri {
-  @include button(shiny, #ff0000);
+  display: inline-block;
+  padding: $padding-base-vertical $padding-base-horizontal;
+  margin-bottom: 0; // For input.btn
+  font-size: $font-size-base;
+  font-weight: $btn-font-weight;
+  line-height: $line-height-base;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: $border-radius-base;
+  white-space: nowrap;
+  @include user-select(none);
+
+  &:focus {
+    @include tab-focus();
+  }
+
+  &:hover,
+  &:focus {
+    color: $btn-default-color;
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    outline: 0;
+    background-image: none;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+    pointer-events: none; // Future-proof disabling of clicks
+    opacity: .65;
+  }
+
 }
 
+
+// Alternate buttons
+// --------------------------------------------------
+
+.btn {
+  @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+}
+.btn-pri {
+  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}
 // Grid :: Boxes
-.boxes {
-  padding: ($line-height-computed * 1.5) 0;
+.section-header, .boxes {  
   @include outer-container;
 }
-.box-title {
-  @include span-columns(12);  
+.boxes {
+  padding: ($line-height-computed / 2) 0 $line-height-computed 0;
 }
 .box6 {
   @include span-columns(2);
@@ -65,127 +100,139 @@
 // Header
 .brand {
   @include span-columns(5);
-  h1 {font-size: 1em}
   img {
     width: 20em;
   }
 }
-.contacts {
+.certificates {
+  @extend .tac;
   @include span-columns(3);
-  a {display: block;}
+  img {margin: 0 1em;}
 }
-.reserve {
+.contacts {
   text-align: right;
+  font-size: 1.4em; 
+  line-height: 1.2em;
   @include span-columns(3);
   @include shift(1);  
   @include omega();  
+  a {display: block;}
 }
-
-// Categories
-.circle {
-  img {
-    border: 1px solid $btn-default-border;
-    border-radius: 50%;
-  }
+.hdr-descr {
+  font-size: 1.7em;
+  @include span-columns(9);
 }
-.cat {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  h3 {
-  }
-  .thumb {
-    margin: 0 4em $line-height-computed;
-  }
-  .price {
-    position: absolute;
-    display: inline-block;
-    @include transform(translateY(50px));
-    @include transform(translateX(50%));
+.request-call {
+  margin-top: $line-height-computed - 5;
+  @extend .tar;
+  @include span-columns(3);  
+  @include omega();
+  .btn-pri {
+    padding: 8px 35px;
   }
 }
 
-// Detailed Animated block
-.partial-container {
-  
+header.boxes {
+  padding-bottom: 0;
 }
-.partial-block {
-  z-index: 16;
-  width: 100%;
-  @include position(relative, 0 auto auto 0);
+.seals {
+  padding-top: $line-height-computed / 2;
 }
-
-.partial-block.ng-enter {  
-  @include animation(slideDown .8s both ease);
-}
-.partial-block.ng-leave {
-  @include animation (slideUp .8s both ease);
-}
-
-@include keyframes(slideDown) {  
-  from {
-    height: 0;
-    opacity: 0;
+.seal {
+  padding: 5px 15px 15px;
+  border: 1px solid $gray-lighter;
+  min-height: 185px;
+  overflow: auto;
+  @include clearfix;
+  @include background-image( radial-gradient(0% 50%, circle cover, #ffffff, #f1f1f1) );
+  .th-seal {
+    float: left;
+    margin-right: 1em;
+    @include size(30% 30%);
   }
 }
-@include keyframes(slideUp) {  
-  to {
-    height: 0;
-    opacity: 0;
+// Footer
+footer {
+  padding-top: $line-height-computed / 2;
+  background: $gray-lighter;
+  border-top: 1px solid $gray-light;
+  .box3:first-child a {
+    display: block;
+  }
+  .btn-pri {
+    padding: 8px 35px;
   }
 }
+
 
 // Products
 .prod-description {
   @include outer-container;  
 }
-.prod-content, .prod-header {
-  @include span-columns(12);
-  @include omega();
+
+.prod-name {
+  @extend .tac;
 }
+.prod-spec {
+  padding: 0 2em;
+  @include clearfix;
+  strong { float: right;} 
+}
+
 .prod {
-  height: 300px;
+  border: 2px solid #e5e5e5;
+  margin-bottom: $line-height-computed;
 }
 .prod .thumb {
-  height: 100%;
+  position: relative;
+  display: block;
+  height: 180px;
+  margin-bottom: $line-height-computed;
   img {
-    width: 75%;
+    height: 100%;
+    width: auto;
     margin:0 auto;
     vertical-align: bottom;
   }
 }
-.feat {
-  display: block;
-  @include transform(rotate(-90deg));
+.price {
+  @include position(absolute, auto auto 50px 50% );
+  span {
+    margin-left:1em;
+    padding:0 10px 0 12px;
+    background: $brand-primary;
+    color:$label-color;
+    text-decoration:none;
+    display: inline-block;
+    line-height: 24px;
+    position: relative;
+    &:before {
+      content:"";
+      float:left;    
+      margin-right: -1px;
+      border-color:transparent $brand-primary transparent transparent;
+      border-style:solid;
+      border-width:12px 12px 12px 0;
+      @include size(0 0);
+      @include position(absolute, 0 100% auto auto);
+    }
+    &:after {
+      content:"";
+      float:left;
+      background: $body-bg;      
+      border-radius:2px;
+      @include size(4px 4px);
+      @include position(absolute, 10px auto auto -2px);
+    }  
+  } 
 }
-// Price Tag
-.price span {
-  margin-left:1em;
-  padding:0 10px 0 12px;
-  background: $label-default-bg;
-  color:$label-color;
-  text-decoration:none;
-  display: inline-block;
-  line-height: 24px;
-  position: relative;
-  &:before {
-    content:"";
-    float:left;    
-    margin-right: -1px;
-    border-color:transparent $label-default-bg transparent transparent;
-    border-style:solid;
-    border-width:12px 12px 12px 0;
-    @include size(0 0);
-    @include position(absolute, 0 100% auto auto);
-  }
-  &:after {
-    content:"";
-    float:left;
-    background: $body-bg;      
-    border-radius:2px;
-    @include size(4px 4px);
-    @include position(absolute, 10px auto auto -2px);
-  }  
-} 
-
-.hide{display:none}
+.descr-text {
+  @include span-columns(4);
+}
+.descr-how {
+  @include span-columns(4);
+}
+.descr-pack {
+  @include span-columns(4);
+  @include omega();
+}

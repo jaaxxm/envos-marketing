@@ -21,7 +21,7 @@ $gray-lighter:           lighten(#000, 93.5%) !default; // #eee
 // Brand colors
 // -------------------------
 
-$brand-primary:         #428bca !default;
+$brand-primary:         #ff5e07 !default;
 $brand-success:         #5cb85c !default;
 $brand-warning:         #f0ad4e !default;
 $brand-danger:          #d9534f !default;
@@ -46,7 +46,7 @@ $font-family-sans-serif:  "Istok Web", Helvetica, Arial, sans-serif !default;
 $font-family-serif:       "Noto Serif", Times, serif !default;
 $font-family-base:        $font-family-sans-serif !default;
 
-$font-size-base:          14px !default;
+$font-size-base:          16px !default;
 $font-size-large:         ceil($font-size-base * 1.25) !default; // ~18px
 $font-size-small:         ceil($font-size-base * 0.85) !default; // ~12px
 
@@ -71,8 +71,8 @@ $padding-large-horizontal:       16px !default;
 $padding-small-vertical:         5px !default;
 $padding-small-horizontal:       10px !default;
 
-$line-height-large:              1.33 !default;
-$line-height-small:              1.5 !default;
+$line-height-large:              1.5 !default;
+$line-height-small:              1.33 !default;
 
 $border-radius-base:             4px !default;
 $border-radius-large:            6px !default;

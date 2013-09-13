@@ -4,6 +4,60 @@
 // -------------------------
 // -------------------------
 
+// Button variants
+// -------------------------
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+@mixin button-variant($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: $color;
+    background-color: darken($background, 8%);
+        border-color: darken($border, 12%);
+  }
+  .open & { &.dropdown-toggle {
+    color: $color;
+    background-color: darken($background, 8%);
+        border-color: darken($border, 12%);
+  } }
+  &:active,
+  &.active {
+    background-image: none;
+  }
+  .open & { &.dropdown-toggle {
+    background-image: none;
+  } }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: $background;
+          border-color: $border
+    }
+  }
+}
+
+
+// User select
+// For selecting text on the page
+@mixin user-select($select) {
+  -webkit-user-select: $select;
+     -moz-user-select: $select;
+      -ms-user-select: $select; // IE10+
+       -o-user-select: $select;
+          user-select: $select;
+}
+
 // Webkit-style focus
 @mixin tab-focus() {
   // Default
@@ -20,6 +74,38 @@
 }
 
 // Common
+@mixin prefixer-multi ($property, $val1, $val2, $prefixes) {
+  @each $prefix in $prefixes {
+    @if $prefix == webkit {
+      @if $prefix-for-webkit {
+        -webkit-#{$property}: $val1 $val2;
+      }
+    }
+    @else if $prefix == moz {
+      @if $prefix-for-mozilla {
+        -moz-#{$property}: $val1 $val2;
+      }
+    }
+    @else if $prefix == ms {
+      @if $prefix-for-microsoft {
+        -ms-#{$property}: $val1 $val2;
+      }
+    }
+    @else if $prefix == o {
+      @if $prefix-for-opera {
+        -o-#{$property}: $val1 $val2;
+      }
+    }
+    @else if $prefix == spec {
+      @if $prefix-for-spec {
+        #{$property}: $val1 $val2;
+      }
+    }
+    @else  {
+      @warn "Unrecognized prefix: #{$prefix}";
+    }
+  }
+}
 @mixin transform-multi($prop1: none, $prop2: none) {
 //  none | <transform-function>
   @include prefixer-multi(transform, $prop1, $prop2, webkit moz ms o spec);

@@ -1,45 +1,70 @@
 'use strict';
 
 angular.module('envosMarketingApp')
-  .controller('MainCtrl', function ($scope, $modal, $log, $http) {
-
+  .controller('MainCtrl', function ($scope, $modal, $log, $http, $location, $anchorScroll) {
 
     var client = new Faye.Client('https://api.cloud.dreamfactory.com:9292/bayeux');
     var qString = "?app_name=envos-ru&fields=*";
-    var myDSP = 'https://dsp-jaaxxm.cloud.dreamfactory.com/rest/db/prodBench/';
+    var dspDBprodBench = 'https://dsp-envos.cloud.dreamfactory.com/rest/db/prodBench/';
 
-    
-    $http.get(myDSP + qString).success(function (data) {
+   	// Get products from DB
+    $http.get(dspDBprodBench + qString).success(function (data) {
       $scope.Bench = data;
-    });    
-	  
-	  /////////////////////
-	  // Products Series
-	  /////////////////////	 
-	  $scope.products = [ 
-	  	{ title: 'Серия НКП 01У', url: 'views/products/nkp.html', descr: 'views/products/nkp-description.html'}, 
-	  	{ title: 'Серия ИКП 01У', url: 'views/products/ikp.html', descr: 'views/products/ikp-description.html'}
-	  ];
-	  
-	  // $scope.product = $scope.products[0];
+    });    	  
 
-	  $scope.showProducts = function(num) {
-	  	$scope.product = $scope.products[num];
+    // Toggle Featured/All
+		$scope.toggleNkp = true;
+		$scope.toggleNkpLabel = 'Show All';
+
+		$scope.toggleAllNkp = function () {
+      if ($scope.toggleNkp === true){
+        $scope.toggleNkp = false;
+				$scope.toggleNkpLabel = 'Show Less';
+      } else {
+        $scope.toggleNkp = true;
+				$scope.toggleNkpLabel = 'Show More';
+      }
+		}
+
+		$scope.toggleIkp = true;
+		$scope.toggleIkpLabel = 'Show All';
+		
+		$scope.toggleAllIkp = function () {
+      if ($scope.toggleIkp === true){
+        $scope.toggleIkp = false;
+				$scope.toggleIkpLabel = 'Show Less';
+      } else {
+        $scope.toggleIkp = true;
+				$scope.toggleIkpLabel = 'Show More';
+      }
+		}
+	  /////////////////////
+	  // Product Description
+	  /////////////////////	 
+	  $scope.details = [ 
+	  	{ title: 'Серия НКП 01У', url: 'views/products/nkp-description.html'}, 
+	  	{ title: 'Серия ИКП 01У', url: 'views/products/ikp-description.html'}
+	  ];
+	  $scope.showDetailsNkp = function() {
+	  	$scope.detail = $scope.details[0];
 	  }
-	  $scope.closeProducts = function() {
-	  	$scope.product = false;
+	  $scope.showDetailsIkp = function() {
+	  	$scope.detail = $scope.details[1];
+	  }
+	  $scope.closeDetails = function() {
+	  	$scope.detail = false;
 	  }
 
 		/////////////////////
-	  // Purchase Modal
+	  // Lead Modal
 	  /////////////////////	 	  
 		$scope.items = ['item1', 'item2', 'item3'];
 
-	  $scope.openPurchase = function () {
+	  $scope.openLead = function () {
 
-	    var modalPurchase = $modal.open({
-	      templateUrl: 'views/modal/purchase.html',
-	      controller: ModalPurchaseCtrl,
+	    var modalLead = $modal.open({
+	      templateUrl: 'views/modal/lead.html',
+	      controller: ModalLeadCtrl,
 	      resolve: {
 	        items: function () {
 	          return $scope.items;
@@ -47,21 +72,29 @@ angular.module('envosMarketingApp')
 	      }
 	    });
 
-	    modalPurchase.result.then(function (selectedItem) {
+	    modalLead.result.then(function (selectedItem) {
 	      $scope.selected = selectedItem;
 	    }, function () {
 	      $log.info('Modal dismissed at: ' + new Date());
 	    });
 	  };
 
-		var ModalPurchaseCtrl = function ($scope, $modalInstance, items) {
+		var ModalLeadCtrl = function ($scope, $modalInstance, items) {
 
 		  $scope.items = items;
 		  $scope.selected = {
 		    item: $scope.items[0]
 		  };
 
-		  $scope.ok = function () {
+		  $scope.sendLead = function () {
+				
+				// $scope.postLead = $http.post('FIRSTRESTURL', {cache: false});
+				// $scope.sendLead = $http.post('SECONDRESTURL', {'cache': false});
+
+				// $q.all([$scope.product_list_1, $scope.product_list_2]).then(function(values) {
+				//     $scope.results = MyService.doCalculation(values[0], values[1]);
+				// });
+
 		    $modalInstance.close($scope.selected.item);
 		  };
 

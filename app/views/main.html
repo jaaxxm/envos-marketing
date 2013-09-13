@@ -1,5 +1,5 @@
 <!-- Awards block -->
-<section class="boxes">
+<section class="seals boxes">
 	<div class="seal box3">
 		<h3>Лучшая цена</h3>
 		<img class="th-seal" src="images/seal/price.png">
@@ -17,50 +17,50 @@
 	</div>
 </section>
 
-<!-- Series Block -->
-<section class="cat-links boxes">
-	<div class="box3">
-		<h2>Станочные светильники</h2>
-		 <p>для местного освещения рабочих зон сверлильных, токарных и других станков, сборочных столов, а также разного производственного оборудования</p>
-		<h4>Сертификаты</h4>
-		<a href=""><img class="svg-c-rost" src="images/rost.svg" alt=""></a>
-	  <a href=""><img class="svg-c-sepro" src="images/ukr-sepro.svg" alt=""></a>		 
-	</div>
-	<div class="cat box3">
-		<h3>Серия НКП 01У</h3>
-		<div class="price">от <span>500 руб.</span></div>
-		<div class="circle thumb">
-			<img src="images/products/bench/nkp-head.jpg">
-		</div>
-		<div class="specs-brief">
-			<p>Защитный угол, град <strong>19</strong></p>
-			<p>Минимальная освещенность <strong>2300</strong></p>
-		</div>
-		<button class="btn" ng-click="showProducts(0)"><img class="svg-info" src="images/ico/info.svg" alt="">
-			<span>Подробнее</span></button>
-		<button class="btn" ng-click="openPurchase()"><img class="svg-cart" src="images/ico/cart.svg" alt="">
-			<span>Заказать</span></button>
-	</div>
-	<div class="cat box3">
-		<h3>Серия ИКП 09У</h3>
-		<div class="price">от <span>500 руб.</span></div>
-		<div class="circle thumb">
-			<img src="images/products/bench/ikp-head.jpg">
-		</div>
-		<div class="specs-brief">
-			<p>Защитный угол, град <strong>19</strong></p>
-			<p>Минимальная освещенность <strong>800/3100</strong></p>
-		</div>
-		<button class="btn" ng-click="showProducts(1)"><img class="svg-info" src="images/ico/info.svg" alt="">
-			<span>Подробнее</span></button>
-		<button class="btn" ng-click="openPurchase()"><img class="svg-cart" src="images/ico/cart.svg" alt="">
-			<span>Заказать</span></button>
+<div class="section-header">
+	<h2>Станочные светильники НКП</h2>
+</div>
+<!-- Serie Products Boxes -->
+<section class="boxes">
+	<div class="prod box3" ng-repeat="stanok in Bench.record | filter: { class: 'nkp'}">
+		<h3 class="prod-name">НКП01У-{{stanok.model}}</h3>
+		<a class="thumb" href="#" ng-click="openLightbox()">
+			<img ng-src="images/products/bench/{{stanok.picture}}.jpg">
+			<div class="price"><span>{{stanok.price}} руб.</span></div>
+		</a>
+		<p class="prod-spec">Длина стойки: <strong>{{stanok.height}} мм</strong></p>
+		<p class="prod-spec">Степень защиты: <strong>IP20</strong></p>
+		<p class="tac">
+			<button class="btn" ng-click="showDetailsNkp()"><img class="svg-info" src="images/ico/info.svg" alt="">
+				<span>Подробнее</span></button>
+			<button class="btn" ng-click="openLead()"><img class="svg-cart" src="images/ico/cart.svg" alt="">
+				<span>Заказать</span></button>
+		</p>
 	</div>
 </section>
-<!-- Serie Detail Block -->
-<div class="partial-container">
-	<div class="partial-block" ng-include="product.url"></div>
+
+<div class="section-header">
+	<h2>Станочные светильники ИКП</h2>
 </div>
+<!-- Serie Products Boxes -->
+<section class="boxes">
+	<div class="prod box3" ng-repeat="stanok in Bench.record | filter: { class: 'ikp'}">
+		<h3 class="prod-name">ИКП09У-{{stanok.model}}</h3>
+		<a class="thumb" href="#" ng-click="openLightbox()">
+			<img ng-src="images/products/bench/{{stanok.picture}}.jpg">
+			<div class="price"><span>{{stanok.price}} руб.</span></div>
+		</a>
+		<p class="prod-spec">Длина стойки: <strong>{{stanok.height}} мм</strong></p>
+		<p class="prod-spec">Степень защиты: <strong>IP54</strong></p>
+		<p class="tac">
+			<button class="btn" ng-click="showDetailsIkp()"><img class="svg-info" src="images/ico/info.svg" alt="">
+				<span>Подробнее</span></button>
+			<button class="btn" ng-click="openLead()"><img class="svg-cart" src="images/ico/cart.svg" alt="">
+				<span>Заказать</span></button>
+		</p>
+	</div>
+</section>
+
 
 <!-- Become Dealer Block -->
 <section class="dealer boxes">
@@ -69,19 +69,19 @@
 	</p>
 </section>
 
-<!-- Achievments -->
+<!-- Clients -->
+<div class="section-header"><h3 class="tac">Наши клиенты</h3></div>
 <section class="boxes">
-	<h3 class="box-title">Наши клиенты</h3>	
-	<div class="box4 thumb">
+	<div class="tac box4">
 		<a href="http://www.antonov.com/" target="_blank"><img src="images/partners/antonov.png" alt="Государственное предприятие 'Антонов'"></a>
 	</div>
-	<div class="box4 thumb">
+	<div class="tac box4">
 		<a href="http://www.artem.ua/" target="_blank"><img src="images/partners/artem.png" alt="Государственная акционерная холдинговая компания 'Артем'"></a>
 	</div>
-	<div class="box4 thumb">
+	<div class="tac box4">
 		<a href="http://www.progress.ua/" target="_blank"><img src="images/partners/progress.png" alt="ОАО Бердичевский машиностроительный завод 'Прогресс'"></a>
 	</div>
-	<div class="box4 thumb">
+	<div class="tac box4">
 		<a href="http://www.yuzhnoye.com/" target="_blank"><img src="images/partners/yuzhnoe.png" alt="КБ 'Южное'"></a>
 	</div>
 </section>
