@@ -1,19 +1,28 @@
 // Lead form
 .input-group {
-  margin-bottom: $line-height-computed * 1.5;
+  margin: ($line-height-computed) 0;
   @include clearfix();
+  &:first-child {margin-top: 0}
 }
 .input-group-addon {
   float: left;
-  width: 10%;
-  margin-right: 2%;
+  width: 8%;
   padding-top: $padding-large-vertical;
   vertical-align: top;
   @extend .tac;
 }
+.input-required {
+  float: left;
+  width: 4%;
+  line-height: 2em;
+}
+.input-required, .helper-group strong {
+  color: $brand-primary;
+  font-size: $font-size-large;
+}
 .form-control {
   float: right;
-  width: 85%;
+  width: 88%;
   padding: $padding-large-vertical $padding-large-horizontal;
   font-size: $font-size-large;
   line-height: $line-height-large;
@@ -28,6 +37,7 @@ textarea.form-control {
 .modal-form {
   .ng-invalid.ng-dirty {
     border-color: $brand-warning;
+    background: lighten($brand-warning, 20%);
   }
   .ng-valid.ng-dirty {
     border-color: $brand-success;

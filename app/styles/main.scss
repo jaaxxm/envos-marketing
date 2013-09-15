@@ -113,17 +113,22 @@
   text-align: right;
   font-size: 1.4em; 
   line-height: 1.2em;
-  @include span-columns(3);
-  @include shift(1);  
+  @include span-columns(4);
   @include omega();  
-  a {display: block;}
+  a {
+    display: block;
+    &.tel {
+      font-size: 1.4em; 
+      line-height: 1.3em;
+    }
+  }
 }
 .hdr-descr {
-  font-size: 1.7em;
+  font-size: 1.33em;
   @include span-columns(9);
 }
 .request-call {
-  margin-top: $line-height-computed - 5;
+  margin-top: $line-height-computed - 10;
   @extend .tar;
   @include span-columns(3);  
   @include omega();
@@ -139,15 +144,19 @@ header.boxes {
   padding-top: $line-height-computed / 2;
 }
 .seal {
-  padding: 5px 15px 15px;
+  padding: 5px 8px 8px;
   border: 1px solid $gray-lighter;
   min-height: 185px;
   overflow: auto;
+  font-size: $font-size-base - 1;
   @include clearfix;
   @include background-image( radial-gradient(0% 50%, circle cover, #ffffff, #f1f1f1) );
+  h3 {
+  font-size: $font-size-base * 1.5;    
+  }
   .th-seal {
     float: left;
-    margin-right: 1em;
+    margin-right: 0.5em;
     @include size(30% 30%);
   }
 }
@@ -226,13 +235,12 @@ footer {
     }  
   } 
 }
-.descr-text {
-  @include span-columns(4);
+
+
+.detail-thumb {
+  @include span-columns(3);  
 }
-.descr-how {
-  @include span-columns(4);
-}
-.descr-pack {
-  @include span-columns(4);
+.detail-intro {  
+  @include span-columns(9);
   @include omega();
 }
