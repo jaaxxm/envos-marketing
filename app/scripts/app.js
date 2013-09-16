@@ -1,50 +1,45 @@
 'use strict';
 
 angular.module('envosMarketingApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
-  .controller('envosMarketingAppCtrl', function($rootScope, $scope, $modal) {    
+  .controller('envosMarketingAppCtrl', function($rootScope, $scope, $modal, $log, leadService) {
     $rootScope.topScope = $rootScope;
 
     /////////////////////
     // Lead Modal
-    /////////////////////     
-    $scope.items = ['item1', 'item2', 'item3'];
-
-    $scope.openLead = function () {
+    /////////////////////
+    $scope.openLead = function (productTitle) {
+      
+      $scope.lead = {
+        product: productTitle
+      };
 
       var modalLead = $modal.open({
         templateUrl: 'views/modal/lead.html',
         controller: ModalLeadCtrl,
         resolve: {
-          items: function () {
-            return $scope.items;
+          fields: function () {
+            return $scope.lead;
           }
         }
       });
 
-      // modalLead.result.then(function (selectedItem) {
-      //   $scope.selected = selectedItem;
-      // }, function () {
-      //   $log.info('Modal dismissed at: ' + new Date());
-      // });
+      modalLead.result.then(function (leadFields) {
+        $scope.lead = leadFields;
+        leadService.async($scope.lead).then(function(data) {
+          // client.publish('/Leads', {action: "add", newData: data});
+        });        
+        // $log.info($scope.lead);
+      }, function () {
+        $log.info('Modal dismissed at: ' + new Date());
+      });
     };
 
-    var ModalLeadCtrl = function ($scope, $modalInstance, items) {
+    var ModalLeadCtrl = function ($scope, $modalInstance, fields) {
 
-      $scope.items = items;
-      $scope.selected = {
-        item: $scope.items[0]
-      };
+      $scope.lead = fields;
 
       $scope.sendLead = function () {
-        
-        // $scope.postLead = $http.post('FIRSTRESTURL', {cache: false});
-        // $scope.sendLead = $http.post('SECONDRESTURL', {'cache': false});
-
-        // $q.all([$scope.product_list_1, $scope.product_list_2]).then(function(values) {
-        //     $scope.results = MyService.doCalculation(values[0], values[1]);
-        // });
-
-        $modalInstance.close($scope.selected.item);
+        $modalInstance.close($scope.lead);
       };
 
       $scope.cancel = function () {

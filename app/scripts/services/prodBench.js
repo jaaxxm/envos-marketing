@@ -1,24 +1,25 @@
 'use strict';
 
 angular.module('envosMarketingApp')
-.factory('prodBench', function ($scope, $http) {
-    
+  .factory('prodBench', function ($http) {
 
-    // // Service logic
-    // // ...
-    // var meaningOfLife = 42;
+    var qString = "?app_name=envos-ru&fields=*";
+    var dspDBprodBench = 'https://dsp-envos.cloud.dreamfactory.com/rest/db/prodBench/';
 
-    // // Public API here
-    // return {
-    //   someMethod: function () {
-    //     return meaningOfLife;
-    //   }
-    // };
+    var prodBench = {
+      async: function() {
+        // $http returns a promise, which has a then function, which also returns a promise
+        var promise = $http.get(dspDBprodBench + qString).then(function (response) {
+          // The then function here is an opportunity to modify the response
+          // console.log(response);
+          // The return value gets picked up by the then in the controller.
+          return response.data;
+        });
+        // Return the promise to the controller
+        return promise;
+      }
+    };
+    return prodBench;
 
-    // var client = new Faye.Client('https://api.cloud.dreamfactory.com:9292/bayeux');
-    // var qString = "?app_name=envos-ru&fields=*";
-    // var myDSP = 'https://dsp-go.cloud.dreamfactory.com/rest/db/prodBench/';
-
-    
 
   });
