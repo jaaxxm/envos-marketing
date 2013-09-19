@@ -54,11 +54,11 @@ angular.module('envosMarketingApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })      
-      .when('/product-nkp', {
+      .when('/product-nkp/:productId', {
         templateUrl: 'views/product-nkp.html',
         controller: 'ProductNkpCtrl'
       })
-      .when('/product-ikp', {
+      .when('/product-ikp/:productId', {
         templateUrl: 'views/product-ikp.html',
         controller: 'ProductIkpCtrl'
       })
