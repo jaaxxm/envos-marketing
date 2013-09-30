@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('envosMarketingApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
-  .controller('envosMarketingAppCtrl', function($rootScope, $scope, $modal, $log, leadService) {
+  .controller('envosMarketingAppCtrl', function($rootScope, $scope, $modal, $log, leadService, emailService) {
     $rootScope.topScope = $rootScope;
 
     /////////////////////
@@ -24,10 +24,26 @@ angular.module('envosMarketingApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
       });
 
       modalLead.result.then(function (leadFields) {
-        $scope.lead = leadFields;
+        $scope.lead = leadFields;        
+        var emailData = {
+          "template": "Lead",
+          "from_name": "DreamFactory",
+          "from_email": "no-reply@dreamfactory.com",
+          "lead_id": leadFields.id, 
+          "lead_name": leadFields.name, 
+          "lead_phone": leadFields.phone, 
+          "lead_email": leadFields.email, 
+          "lead_product": leadFields.product, 
+          "lead_comment": leadFields.comment
+        };
+        var emailBody = JSON.stringify(emailData);
         leadService.async($scope.lead).then(function(data) {
           // client.publish('/Leads', {action: "add", newData: data});
-        });        
+        });
+
+        emailService.async(emailBody).then(function(data) {
+          // client.publish('/Leads', {action: "add", newData: data});
+        });
         // $log.info($scope.lead);
       }, function () {
         $log.info('Modal dismissed at: ' + new Date());

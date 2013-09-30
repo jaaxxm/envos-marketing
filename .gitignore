@@ -2,6 +2,7 @@ node_modules
 dist
 .tmp
 .sass-cache
-app/bower_components
 *.png
 *.jpg
+app/bower_components
+app/sftp-config.json
