@@ -116,6 +116,7 @@
   @include span-columns(4);
   @include omega();  
   a {
+    font-family: Arial, sans-serif;
     display: block;
     &.tel {
       font-size: 1.4em; 
@@ -167,6 +168,7 @@ footer {
   border-top: 1px solid $gray-light;
   .box3:first-child a {
     display: block;
+    font-family: Arial, sans-serif;
   }
   .btn-pri {
     padding: 8px 35px;

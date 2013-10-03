@@ -749,6 +749,7 @@ tbody > tr > td {
   .contacts:last-child {
     margin-right: 0; }
   .contacts a {
+    font-family: Arial, sans-serif;
     display: block; }
     .contacts a.tel {
       font-size: 1.4em;
@@ -808,7 +809,8 @@ footer {
   background: #eeeeee;
   border-top: 1px solid #999999; }
   footer .box3:first-child a {
-    display: block; }
+    display: block;
+    font-family: Arial, sans-serif; }
   footer .btn-pri {
     padding: 8px 35px; }
 
