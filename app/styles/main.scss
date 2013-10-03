@@ -158,7 +158,7 @@ header.boxes {
   .th-seal {
     float: left;
     margin-right: 0.5em;
-    @include size(30% 30%);
+    @include size(90px 90px);
   }
 }
 // Footer
