@@ -1,7 +1,28 @@
 'use strict';
 
 angular.module('envosMarketingApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
-  .controller('envosMarketingAppCtrl', function($rootScope, $scope, $modal, $log, leadService, emailService) {
+  .config(function ($routeProvider, $locationProvider) {
+
+    $routeProvider
+      .when('/', {
+        templateUrl: '/views/main.html',
+        controller: 'MainCtrl'
+      })      
+      .when('/products/nkp/:productId', {
+        templateUrl: '/views/product-nkp.html',
+        controller: 'ProductNkpCtrl'
+      })
+      .when('/products/ikp/:productId', {
+        templateUrl: '/views/product-ikp.html',
+        controller: 'ProductIkpCtrl'
+      })
+      .otherwise({
+        redirectTo: '/'
+      });
+    
+    $locationProvider.html5Mode(true);
+  })
+    .controller('envosMarketingAppCtrl', function($rootScope, $scope, $modal, $log, leadService, emailService) {
     $rootScope.topScope = $rootScope;
 
     /////////////////////
@@ -14,7 +35,7 @@ angular.module('envosMarketingApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
       };
 
       var modalLead = $modal.open({
-        templateUrl: 'views/modal/lead.html',
+        templateUrl: '/views/modal/lead.html',
         controller: ModalLeadCtrl,
         resolve: {
           fields: function () {
@@ -22,6 +43,36 @@ angular.module('envosMarketingApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
           }
         }
       });
+      
+      var a_p = "";
+      var d = new Date();
+      var curr_hour = d.getHours();
+      if (curr_hour < 12)
+         {
+         a_p = "AM";
+         }
+      else
+         {
+         a_p = "PM";
+         }
+      if (curr_hour == 0)
+         {
+         curr_hour = 12;
+         }
+      if (curr_hour > 12)
+         {
+         curr_hour = curr_hour - 12;
+         }
+
+      var curr_min = d.getMinutes();
+
+      curr_min = curr_min + "";
+
+      if (curr_min.length == 1)
+         {
+         curr_min = "0" + curr_min;
+         }
+      var leadDate = d.getDate() + "-" + d.getMonth() + "-" + d.getFullYear() + " " + curr_hour + ":" + curr_min + " " + a_p;
 
       modalLead.result.then(function (leadFields) {
         $scope.lead = leadFields;        
@@ -29,7 +80,7 @@ angular.module('envosMarketingApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
           "template": "Lead",
           "from_name": "DreamFactory",
           "from_email": "no-reply@dreamfactory.com",
-          "lead_id": leadFields.id, 
+          "lead_date": leadDate, 
           "lead_name": leadFields.name, 
           "lead_phone": leadFields.phone, 
           "lead_email": leadFields.email, 
@@ -63,22 +114,4 @@ angular.module('envosMarketingApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
       };
     };
 
-  })
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })      
-      .when('/product-nkp/:productId', {
-        templateUrl: 'views/product-nkp.html',
-        controller: 'ProductNkpCtrl'
-      })
-      .when('/product-ikp/:productId', {
-        templateUrl: 'views/product-ikp.html',
-        controller: 'ProductIkpCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
   });

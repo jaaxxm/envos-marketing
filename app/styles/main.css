@@ -161,8 +161,7 @@ body {
   font-size: 16px;
   line-height: 22px;
   color: #333333;
-  background-color: white;
-  padding: 0 15px; }
+  background-color: white; }
 
 input,
 button,
@@ -558,6 +557,9 @@ tbody > tr > td {
 .table-striped > tbody > tr:nth-child(odd) > td,
 .table-striped > tbody > tr:nth-child(odd) > th {
   background-color: #f9f9f9; }
+
+.container {
+  padding: 0 15px; }
 
 .tac, .input-group-addon, .certificates, .prod-name {
   text-align: center; }

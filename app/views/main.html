@@ -23,7 +23,7 @@
 <!-- Serie Products Boxes -->
 <section class="boxes">
 	<div class="prod box3" ng-repeat="stanok in Bench.record | filter: { class: 'nkp'}">
-		<h3 class="prod-name">НКП01У-{{stanok.model}}</h3>
+		<h3 class="prod-name">{{stanok.title}}</h3>
 		<a class="thumb" ng-href="#product-nkp/{{stanok.id}}">
 			<img ng-src="images/products/bench/{{stanok.picture}}.jpg">
 			<div class="price"><span>{{stanok.price}} руб.</span></div>
@@ -31,9 +31,9 @@
 		<p class="prod-spec">Длина стойки: <strong>{{stanok.height}} мм</strong></p>
 		<p class="prod-spec">Степень защиты: <strong>IP20</strong></p>
 		<p class="tac">
-			<a class="btn" ng-href="#product-nkp/{{stanok.id}}"><img class="svg-info" src="images/ico/info.svg" alt="">
+			<a class="btn" ng-href="/products/nkp/{{stanok.id}}"><img class="svg-info" src="images/ico/info.svg" alt="">
 				<span>Подробнее</span></a>
-			<button class="btn" ng-click="openLead(stanok.class + stanok.model)"><img class="svg-cart" src="images/ico/cart.svg" alt="">
+			<button class="btn" ng-click="openLead(stanok.title)"><img class="svg-cart" src="images/ico/cart.svg" alt="">
 				<span>Заказать</span></button>
 		</p>
 	</div>
@@ -53,9 +53,9 @@
 		<p class="prod-spec">Длина стойки: <strong>{{stanok.height}} мм</strong></p>
 		<p class="prod-spec">Степень защиты: <strong>IP54</strong></p>
 		<p class="tac">
-			<a class="btn" ng-href="#product-ikp/{{stanok.id}}"><img class="svg-info" src="images/ico/info.svg" alt="">
+			<a class="btn" ng-href="/products/ikp/{{stanok.id}}"><img class="svg-info" src="images/ico/info.svg" alt="">
 				<span>Подробнее</span></a>
-			<button class="btn" ng-click="openLead(stanok.class + stanok.model)"><img class="svg-cart" src="images/ico/cart.svg" alt="">
+			<button class="btn" ng-click="openLead(stanok.title)"><img class="svg-cart" src="images/ico/cart.svg" alt="">
 				<span>Заказать</span></button>
 		</p>
 	</div>
