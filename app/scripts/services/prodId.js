@@ -3,7 +3,7 @@
 angular.module('envosMarketingApp')
   .factory('prodId', function ($http) {    
 
-    var qString = "?app_name=envos-ru&fields=model%2C+picture";
+    var qString = "?app_name=envos-ru&fields=class%2C%20title%2C%20picture";
     var dspDBprodId = 'https://dsp-envos.cloud.dreamfactory.com/rest/db/prodBench/';
 
     var prodId = {

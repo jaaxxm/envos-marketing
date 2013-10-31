@@ -8,14 +8,10 @@ angular.module('envosMarketingApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
         templateUrl: '/views/main.html',
         controller: 'MainCtrl'
       })      
-      .when('/products/nkp/:productId', {
-        templateUrl: '/views/product-nkp.html',
-        controller: 'ProductNkpCtrl'
-      })
-      .when('/products/ikp/:productId', {
-        templateUrl: '/views/product-ikp.html',
-        controller: 'ProductIkpCtrl'
-      })
+      .when('/products/:productClass/:productId', {
+        templateUrl: '/views/product.detail.html',
+        controller: 'ProductDetailsCtrl'
+      })      
       .otherwise({
         redirectTo: '/'
       });
