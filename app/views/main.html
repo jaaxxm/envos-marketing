@@ -24,7 +24,7 @@
 <section class="boxes">
 	<div class="prod box3" ng-repeat="stanok in Bench.record | filter: { class: 'nkp'}">
 		<h3 class="prod-name">{{stanok.title}}</h3>
-		<a class="thumb" ng-href="#product-nkp/{{stanok.id}}">
+		<a class="thumb" ng-href="/products/{{stanok.class}}/{{stanok.id}}">
 			<img ng-src="images/products/bench/{{stanok.picture}}.jpg">
 			<div class="price"><span>{{stanok.price}} руб.</span></div>
 		</a>
@@ -46,7 +46,7 @@
 <section class="boxes">
 	<div class="prod box3" ng-repeat="stanok in Bench.record | filter: { class: 'ikp'}">
 		<h3 class="prod-name">{{stanok.title}}</h3>
-		<a class="thumb" ng-href="#product-ikp/{{stanok.id}}">
+		<a class="thumb" ng-href="/products/{{stanok.class}}/{{stanok.id}}">
 			<img ng-src="images/products/bench/{{stanok.picture}}.jpg">
 			<div class="price"><span>{{stanok.price}} руб.</span></div>
 		</a>

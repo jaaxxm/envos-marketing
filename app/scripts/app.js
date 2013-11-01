@@ -42,6 +42,7 @@ angular.module('envosMarketingApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
       
       var a_p = "";
       var d = new Date();
+      var curr_month = d.getMonth() + 1;
       var curr_hour = d.getHours();
       if (curr_hour < 12)
          {
@@ -68,7 +69,7 @@ angular.module('envosMarketingApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
          {
          curr_min = "0" + curr_min;
          }
-      var leadDate = d.getDate() + "-" + d.getMonth() + "-" + d.getFullYear() + " " + curr_hour + ":" + curr_min + " " + a_p;
+      var leadDate = d.getDate() + "-" + curr_month + "-" + d.getFullYear() + " " + curr_hour + ":" + curr_min + " " + a_p;
 
       modalLead.result.then(function (leadFields) {
         $scope.lead = leadFields;        
