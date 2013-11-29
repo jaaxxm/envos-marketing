@@ -1,13 +1,19 @@
 @import "lib/vars";
 @import "lib/bourbon";
 @import "lib/neat";
+// @import "lib/bootstrap";
 @import "lib/envos";
 
- .container {padding: 0 15px;}
+// Containers
+.container {padding: 0 15px;}
+.well {
+  background: #fff url(../images/whitediamond.png);
+  padding: 1em 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin-bottom: $line-height-computed;
+}
 
-.tac {text-align: center;}
-.tar {text-align: right;}
-.hide{display:none}
 
 // Images
 .btn, .input-group-addon {
@@ -178,6 +184,57 @@ footer {
 }
 
 
+.close-collapse {
+  outline: none;
+  font-size: 1em;
+  .svg-arrow {
+    opacity: 0.3;
+    @include size(2em);
+    @include transform-origin(center center);
+    @include transform(rotate(-90deg));
+  }
+  @include transform(translateX(100%));  
+  @include position(fixed, 50% 5px auto auto);
+  @include transition-property (transform);
+  @include transition-timing-function(ease-in);
+  @include transition-duration(0.3s);
+}
+.collapse {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  @include transition(height .5s ease-in);
+  &.in {
+    height: auto;
+    .close-collapse {
+      @include transform(translateX(0%));
+    }
+  }
+}
+
+.box-serie {
+  h3 + img {
+    max-width: 80%;
+    height: auto;
+    border: 1px solid $btn-default-border;
+  }
+}
+.new {
+  z-index: 5;  
+  position: relative;
+  &:after {
+    content: 'новинка';
+    font-size: 0.8em;
+    line-height: 4em;
+    color: #fff;
+    background: rgb(255, 95, 8);
+    border-radius:50%;
+    z-index: 6;
+    @include size(4em);
+    @include position(absolute, 50px 20px auto auto);
+  }
+}
+
 // Products
 .prod-description {
   @include outer-container;  
@@ -193,6 +250,7 @@ footer {
 }
 
 .prod {
+  background: #fff;
   border: 2px solid #e5e5e5;
   margin-bottom: $line-height-computed;
 }
@@ -239,12 +297,87 @@ footer {
     }  
   } 
 }
-
-
+.price-old {  
+  line-height: 24px;
+  text-decoration: line-through;
+  @include position(absolute, auto auto 20px 57%);
+}
+// Product details
 .detail-thumb {
   @include span-columns(3);  
 }
 .detail-intro {  
   @include span-columns(9);
   @include omega();
+}
+
+
+/////////////////////
+///////////////
+
+.circle {
+  background: rgb(255,255,255);
+  display: block;
+  border-radius: 100%;
+  cursor: pointer;
+  position: relative;
+  margin: 0 auto;    
+  overflow: hidden;
+  z-index: 1;
+  @include transform(translateZ(0));
+  @include size(18em);
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  span {
+    color: rgba(255, 95, 8, 0);
+    font-size: 1.6em;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+    display: block;
+    z-index: 3;
+    position: absolute;
+    width: 100%;
+    top: 5.5em;
+    @include transition(color 0.8s ease-in-out);
+  }
+  &:before,
+  &:after {
+    border-radius: 100%;
+    content:"";
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: inherit; 
+    height: inherit;
+    z-index: 2;
+    box-shadow: 
+                inset 0.2em 0 0 rgba(30, 30, 30, 0.1), 
+                inset 0 0.2em 0 rgba(30, 30, 30, 0.1), 
+                inset -0.2em 0 0 rgba(30, 30, 30, 0.1), 
+                inset 0 -0.2em 0 rgba(30, 30, 30, 0.1)
+                ;
+                
+    @include transition(box-shadow 0.75s);
+  }
+  &:after  {
+    @include transform(rotate(45deg));
+  }
+  &:hover {
+    span {
+      color: rgba(255, 255, 255, 1);
+    }
+    &:before,
+    &:after  {
+      box-shadow: 
+                  inset 14em 0 0 rgba(255, 95, 8, 0.25), 
+                  inset 0 14em 0 rgba(255, 95, 8, 0.25), 
+                  inset -14em 0 0 rgba(255, 95, 8, 0.25), 
+                  inset 0 -14em 0 rgba(255, 95, 8, 0.25)
+                  ;
+    }
+  }
 }

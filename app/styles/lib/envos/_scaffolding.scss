@@ -78,6 +78,11 @@ hr {
   border-top: 1px solid $hr-border;
 }
 
+.tac {text-align: center;}
+.tar {text-align: right;}
+.pull-right {float: right;}
+.pull-left {float: left;}
+.hide{display:none}
 
 // Only display content to screen readers
 //
@@ -93,3 +98,4 @@ hr {
   clip: rect(0 0 0 0);
   border: 0;
 }
+
