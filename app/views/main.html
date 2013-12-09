@@ -24,32 +24,36 @@
 	<!-- Series chooser -->
 	<section class="boxes">
 		<div class="box-serie box3 new">
-			<h3>Серия ЛКП</h3>
+			<h3 class="tac">Серия ЛКП</h3>
 			<a class="circle" data-ng-click="openSerie(0)">
 				<img src="images/products/bench/lkp-head.jpg" alt="">
-				<span>Модельный ряд</span>
+				<span>Светильник НКП с длинным плафоном под энергосберегающую лампу.</span>
 			</a>
 		</div>
 		<div class="box-serie box3">
-			<h3>Серия ИКП</h3>	
-			<a class="circle" data-ng-click="openSerie(2)">
-				<img src="images/products/bench/ikp-head.jpg" alt="">
-				<span>Модельный ряд</span>
-			</a>
-		</div>
-		<div class="box-serie box3">
-			<h3>Серия НКП</h3>	
+			<h3 class="tac">Серия НКП</h3>	
 			<a class="circle" data-ng-click="openSerie(1)">
 				<img src="images/products/bench/nkp-head.jpg" alt="">
 				<span>Модельный ряд</span>
 			</a>
 		</div>
+		<div class="box-serie box3">
+			<h3 class="tac">Серия ИКП</h3>	
+			<a class="circle" data-ng-click="openSerie(2)">
+				<img src="images/products/bench/ikp-head.jpg" alt="">
+				<span>Модельный ряд</span>
+			</a>
+		</div>
 	</section>
+	<div id="series"></div>
 	<!-- Products series list -->
 	<section collapse="isCollapsed[0]">
 		<button class="close close-collapse" data-ng-click="hideSerie(0)">
 			<img class="svg-arrow" src="images/ico/arrow.svg" alt=""> свернуть
 		</button>
+		<div class="boxes">
+			<h4 class="tac"><span class="larger">НОВИНКА</span> <span>:</span> <span>светильник НКП с длинным плафоном <br />под энергосберегающую лампу</span> <span>-</span> <span class="larger">серия ЛКП</span></h4>
+		</div>
 		<div class="boxes">
 			<div class="prod box3" ng-repeat="stanok in Bench.record | filter: { class: 'lkp'}">
 				<h3 class="prod-name">{{stanok.title}}</h3>
@@ -73,12 +77,14 @@
 			<img class="svg-arrow" src="images/ico/arrow.svg" alt=""> свернуть
 		</button>
 		<div class="boxes">
+			<h4 class="tac"><img class="svg-arrow" src="images/ico/arrow.svg" alt=""> <a data-ng-click="showNew()"><span class="larger">Внимание НОВИНКА</span> <span>:</span> <span>светильник НКП с длинным плафоном <br />под энергосберегающую лампу</span> <span>-</span> <span class="larger">серия ЛКП</span></a></h4>
+		</div>
+		<div class="boxes">
 			<div class="prod box3" ng-repeat="stanok in Bench.record | filter: { class: 'nkp'}">
 				<h3 class="prod-name">{{stanok.title}}</h3>
 				<a class="thumb" ng-href="/products/{{stanok.class}}/{{stanok.id}}">
 					<img ng-src="images/products/bench/{{stanok.picture}}.jpg">
-					<div class="price"><span>{{stanok.price * 0.9 | number:0}} руб.</span></div>
-					<div class="price-old text-muted"><span>{{stanok.price}} руб.</span></div>
+					<div class="price"><span>{{stanok.price}} руб.</span></div>
 				</a>
 				<p class="prod-spec">Длина стойки: <strong>{{stanok.height}} мм</strong></p>
 				<p class="prod-spec">Степень защиты: <strong>IP20</strong></p>
@@ -96,6 +102,9 @@
 			<img class="svg-arrow" src="images/ico/arrow.svg" alt=""> свернуть
 		</button>
 		<div class="boxes">
+			<h4 class="tac"><img class="svg-arrow" src="images/ico/arrow.svg" alt=""> <a data-ng-click="showNew()"><span class="larger">Внимание НОВИНКА</span> <span>:</span> <span>светильник НКП с длинным плафоном <br />под энергосберегающую лампу</span> <span>-</span> <span class="larger">серия ЛКП</span></a></h4>
+		</div>
+		<div class="boxes">
 			<div class="prod box3" ng-repeat="stanok in Bench.record | filter: { class: 'ikp'}">
 				<h3 class="prod-name">{{stanok.title}}</h3>
 				<a class="thumb" ng-href="/products/{{stanok.class}}/{{stanok.id}}">
@@ -111,18 +120,6 @@
 						<span>Заказать</span></button>
 				</p>
 			</div>
-		</div>
-	</section>
-	<!-- Promo serie -->
-	<section class="boxes">
-		<div class="box-promo box3">
-			Уникальный плафон
-		</div>
-		<div class="box-promo box3">
-			Лучшее соотношение цена/качество
-		</div>
-		<div class="box-promo box3">
-			Высокая степень 
 		</div>
 	</section>
 </div>

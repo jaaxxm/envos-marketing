@@ -5,10 +5,10 @@
 @import "lib/envos";
 
 // Containers
-.container {padding: 0 15px;}
+.container {padding: 0;}
 .well {
   background: #fff url(../images/whitediamond.png);
-  padding: 1em 0;
+  padding: 0;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
   margin-bottom: $line-height-computed;
@@ -85,6 +85,10 @@
 }
 .boxes {
   padding: ($line-height-computed / 2) 0 $line-height-computed 0;
+}
+.box12 {
+  @include span-columns(12);
+  @include omega;
 }
 .box6 {
   @include span-columns(2);
@@ -184,9 +188,14 @@ footer {
 }
 
 
-.close-collapse {
+.close-collapse {  
   outline: none;
   font-size: 1em;
+  z-index: 10;
+  + .boxes {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
   .svg-arrow {
     opacity: 0.3;
     @include size(2em);
@@ -195,6 +204,26 @@ footer {
   }
   @include transform(translateX(100%));  
   @include position(fixed, 50% 5px auto auto);
+  @include transition-property (transform);
+  @include transition-timing-function(ease-in);
+  @include transition-duration(0.3s);
+}
+.back-link {
+  outline: none;
+  font-size: 1em;
+  float: left;
+  // z-index: 10;
+  white-space: nowrap;
+  margin-bottom: 15px;
+  .svg-arrow {
+    display: inline;
+    opacity: 0.3;
+    @include size(2em);
+    @include transform-origin(center center);
+    @include transform(rotate(180deg));
+  }
+  // @include transform(translateX(100%));  
+  // @include position(fixed, 50% 5px auto auto);
   @include transition-property (transform);
   @include transition-timing-function(ease-in);
   @include transition-duration(0.3s);
@@ -219,19 +248,24 @@ footer {
     border: 1px solid $btn-default-border;
   }
 }
+.box-promo {
+  text-align: center;
+  font-size: 1.2em;
+}
 .new {
   z-index: 5;  
   position: relative;
   &:after {
+    text-align: center;
     content: 'новинка';
-    font-size: 0.8em;
-    line-height: 4em;
+    font-size: 1.1em;
+    line-height: 5em;
     color: #fff;
-    background: rgb(255, 95, 8);
-    border-radius:50%;
+    background: url('../images/ico/badge.svg') no-repeat 0 0;
+    background-size: cover;
     z-index: 6;
-    @include size(4em);
-    @include position(absolute, 50px 20px auto auto);
+    @include size(5em);
+    @include position(absolute, 65px 20px auto auto);
   }
 }
 
@@ -312,26 +346,30 @@ footer {
 }
 
 
-/////////////////////
+///////////////
+//
 ///////////////
 
 .circle {
   background: rgb(255,255,255);
   display: block;
-  border-radius: 100%;
+  border-radius: 50%;
   cursor: pointer;
   position: relative;
   margin: 0 auto;    
   overflow: hidden;
   z-index: 1;
+  text-decoration: none;
   @include transform(translateZ(0));
   @include size(18em);
   img {
     max-width: 100%;
     height: auto;
+    border-radius: 50%;    
   }
   span {
     color: rgba(255, 95, 8, 0);
+    // color: rgba(255, 255, 255, 1);
     font-size: 1.6em;
     text-align: center;
     text-transform: uppercase;
@@ -360,6 +398,11 @@ footer {
                 inset -0.2em 0 0 rgba(30, 30, 30, 0.1), 
                 inset 0 -0.2em 0 rgba(30, 30, 30, 0.1)
                 ;
+                // inset 14em 0 0 rgba(255, 95, 8, 0.25), 
+                // inset 0 14em 0 rgba(255, 95, 8, 0.25), 
+                // inset -14em 0 0 rgba(255, 95, 8, 0.25), 
+                // inset 0 -14em 0 rgba(255, 95, 8, 0.25)
+                // ;
                 
     @include transition(box-shadow 0.75s);
   }
@@ -379,5 +422,35 @@ footer {
                   inset 0 -14em 0 rgba(255, 95, 8, 0.25)
                   ;
     }
+  }
+}
+.new > .circle span {font-size: 1.2em;}
+h4.tac {
+  display: block;
+  margin-top: 0;
+  background: #fff;
+  border: 1px solid $btn-default-border;  
+  @include linear-gradient(90deg, #f1f1f1 0%, #ffffff 50%, #f1f1f1 100%);
+  a:hover {
+    text-decoration: none;   
+    cursor: pointer;
+  }
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 15px 10px;
+    // &:nth-child(2) {
+    //   text-align: left;
+    // }
+    &.larger {
+      font-size: 28px;
+    }
+  }
+  .svg-arrow {
+    display: inline;
+    opacity: 0.3;
+    @include size(2em);
+    @include transform-origin(center center);
+    @include transform(rotate(180deg));
   }
 }

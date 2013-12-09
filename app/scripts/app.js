@@ -4,7 +4,7 @@ angular.module('envosMarketingApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
   .config(function ($routeProvider, $locationProvider) {
 
     $routeProvider
-      .when('/', {
+      .when('/main', {
         templateUrl: '/views/main.html',
         controller: 'MainCtrl'
       })      
@@ -13,7 +13,7 @@ angular.module('envosMarketingApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
         controller: 'ProductDetailsCtrl'
       })      
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/main'
       });
     
     $locationProvider.html5Mode(true);
@@ -111,4 +111,11 @@ angular.module('envosMarketingApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
       };
     };
 
+  })
+  .run(function($rootScope, $location, $anchorScroll, $routeParams) {
+    //when the route is changed scroll to the proper element.
+    $rootScope.$on('$routeChangeSuccess', function(newRoute, oldRoute) {
+      $location.hash($routeParams.scrollTo);
+      $anchorScroll();  
+    });
   });

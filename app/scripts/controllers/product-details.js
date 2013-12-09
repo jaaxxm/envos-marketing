@@ -9,7 +9,10 @@ angular.module('envosMarketingApp')
 		prodId.async($scope.productId).then(function(d) {
 	    $scope.Bench = d;
 			switch($scope.productClass) {
-			  case 'nkp':
+			  case 'lkp':
+			    $scope.template = "/views/content/lkp.html";
+			    break;
+		    case 'nkp':
 			    $scope.template = "/views/content/nkp.html";
 			    break;
 			  case 'ikp':

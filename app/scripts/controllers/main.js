@@ -1,29 +1,27 @@
 'use strict';
 
 angular.module('envosMarketingApp')
-  .controller('MainCtrl', function ($scope, prodBench) {
+  .controller('MainCtrl', function ($scope, prodBench, collapseBlocks, $location, $anchorScroll) {
 
-	  $scope.isCollapsed = [true, true, true];
-	  
+	  $scope.isCollapsed = collapseBlocks.initBlocks();
+		  
 	  $scope.openSerie = function(e)
 	  {
-	  	if($scope.isCollapsed[e] = false) {
-	  		$scope.isCollapsed[e] = true;
-	  	} else {	  		
-		    for(var i=0;i<$scope.isCollapsed.length;i++)
-		      $scope.isCollapsed[i]=true;
-		    $scope.isCollapsed[e] = !$scope.isCollapsed[e];
-	  	}
+  		$location.hash('series');
+      $anchorScroll();
+      collapseBlocks.openBlock(e);	  	
 	  }
-
 	  $scope.hideSerie = function(e)
 	  {	   
-	    $scope.isCollapsed[e] = true;
+      collapseBlocks.closeBlock(e);
+	  }
+	  $scope.showNew = function()
+	  {	   
+      collapseBlocks.openBlock(0);	  	
 	  }
 
 		prodBench.async().then(function(d) {
 	    $scope.Bench = d;
 	  });
-		
 
 	});
