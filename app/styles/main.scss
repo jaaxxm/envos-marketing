@@ -130,10 +130,10 @@
   a {
     font-family: Arial, sans-serif;
     display: block;
-    &.tel {
-      font-size: 1.4em; 
-      line-height: 1.3em;
-    }
+    // &.tel {
+    //   font-size: 1.2em; 
+    //   line-height: 1.3em;
+    // }
   }
 }
 .hdr-descr {
@@ -431,6 +431,9 @@ h4.tac {
   background: #fff;
   border: 1px solid $btn-default-border;  
   @include linear-gradient(90deg, #f1f1f1 0%, #ffffff 50%, #f1f1f1 100%);
+  &.accent {
+    color: $brand-primary;    
+  }
   a:hover {
     text-decoration: none;   
     cursor: pointer;
@@ -442,14 +445,15 @@ h4.tac {
     // &:nth-child(2) {
     //   text-align: left;
     // }
-    &.larger {
-      font-size: 28px;
-    }
   }
+    .larger {
+      font-size: 22px;
+      padding: 10px 0;
+      display: inline-block;
+    }
   .svg-arrow {
     display: inline;
-    opacity: 0.3;
-    @include size(2em);
+    @include size(1.5em);
     @include transform-origin(center center);
     @include transform(rotate(180deg));
   }

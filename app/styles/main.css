@@ -874,9 +874,6 @@ tbody > tr > td {
   .contacts a {
     font-family: Arial, sans-serif;
     display: block; }
-    .contacts a.tel {
-      font-size: 1.4em;
-      line-height: 1.3em; }
 
 .hdr-descr {
   font-size: 1.33em;
@@ -1231,6 +1228,8 @@ h4.tac, h4.input-group-addon, h4.certificates, h4.prod-name {
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f1f1f1), color-stop(50%, white), color-stop(100%, #f1f1f1));
   background-image: -webkit-linear-gradient(-360deg, #f1f1f1 0%, white 50%, #f1f1f1 100%);
   background-image: linear-gradient(90deg,#f1f1f1 0%, white 50%, #f1f1f1 100%); }
+  h4.tac.accent, h4.accent.input-group-addon, h4.accent.certificates, h4.accent.prod-name {
+    color: #ff5e07; }
   h4.tac a:hover, h4.input-group-addon a:hover, h4.certificates a:hover, h4.prod-name a:hover {
     text-decoration: none;
     cursor: pointer; }
@@ -1238,13 +1237,14 @@ h4.tac, h4.input-group-addon, h4.certificates, h4.prod-name {
     display: inline-block;
     vertical-align: middle;
     padding: 15px 10px; }
-    h4.tac span.larger, h4.input-group-addon span.larger, h4.certificates span.larger, h4.prod-name span.larger {
-      font-size: 28px; }
+  h4.tac .larger, h4.input-group-addon .larger, h4.certificates .larger, h4.prod-name .larger {
+    font-size: 22px;
+    padding: 10px 0;
+    display: inline-block; }
   h4.tac .svg-arrow, h4.input-group-addon .svg-arrow, h4.certificates .svg-arrow, h4.prod-name .svg-arrow {
     display: inline;
-    opacity: 0.3;
-    width: 2em;
-    height: 2em;
+    width: 1.5em;
+    height: 1.5em;
     -webkit-transform-origin: center center;
     -moz-transform-origin: center center;
     -ms-transform-origin: center center;
